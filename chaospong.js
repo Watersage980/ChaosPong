@@ -20,8 +20,6 @@ function init() {
 
   ballX = canvas.width / 2;
   ballY = canvas.height / 2;
-  //ballSpeedX = 8;
-  //ballSpeedY = 8;
 
   paddleHeight = 200;
   paddleWidth = 10;
