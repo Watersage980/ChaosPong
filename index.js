@@ -125,21 +125,21 @@ function resetBall() {
 function makeWalls() {
   wallNumber = Math.floor(Math.random() * 4);
   if (wallNumber == 0) {
-    
+
   } else if (wallNumber == 1) {
     wall1X = Math.random() * canvas.width;
     wall1Y = Math.random() * canvas.height;
   } else if (wallNumber == 2) {
-    wall1X = Math.random() * canvas.width;;
+    wall1X = Math.random() * canvas.width;
     wall1Y = Math.random() * canvas.height;
-    wall2X = Math.random() * canvas.width;;
+    wall2X = Math.random() * canvas.width;
     wall2Y = Math.random() * canvas.height;
   } else if (wallNumber == 3) {
-    wall1X = Math.random() * canvas.width;;
+    wall1X = Math.random() * canvas.width;
     wall1Y = Math.random() * canvas.height;
-    wall2X = Math.random() * canvas.width;;
+    wall2X = Math.random() * canvas.width;
     wall2Y = Math.random() * canvas.height;
-    wall3X = Math.random() * canvas.width;;
+    wall3X = Math.random() * canvas.width;
     wall3Y = Math.random() * canvas.height;
   }
 }
