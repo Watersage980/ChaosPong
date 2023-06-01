@@ -111,20 +111,20 @@ function moveBall() {
     ballSpeedX = Math.random() < 0.5 ? -ballSpeedX : ballSpeedX;
   }
 
-  if (ballX == wall1X && ballY == wall1Y) {
-    ballSpeedX = Math.random() < 0.5 ? -ballSpeedX : ballSpeedX;
-    ballSpeedY = Math.random() < 0.5 ? -ballSpeedY : ballSpeedY;
+  if (isTouchingBrown(ballX, ballY)) {
+    // Ball hits the color brown
+    ballSpeedX = -ballSpeedX;
+    ballSpeedY = -ballSpeedY;
   }
+}
 
-  if (ballX == wall2X && ballY == wall2Y) {
-    ballSpeedX = Math.random() < 0.5 ? -ballSpeedX : ballSpeedX;
-    ballSpeedY = Math.random() < 0.5 ? -ballSpeedY : ballSpeedY;
-  }
-
-  if (ballX == wall3X && ballY == wall3Y) {
-    ballSpeedX = Math.random() < 0.5 ? -ballSpeedX : ballSpeedX;
-    ballSpeedY = Math.random() < 0.5 ? -ballSpeedY : ballSpeedY;
-  }
+// Check if the ball touches the color brown
+function isTouchingBrown(x, y) {
+  const pixelData = ctx.getImageData(x, y, 1, 1).data;
+  const red = pixelData[0];
+  const green = pixelData[1];
+  const blue = pixelData[2];
+  return red === 165 && green === 42 && blue === 42;
 }
 
 // Reset ball position
