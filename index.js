@@ -104,6 +104,7 @@ function moveBall() {
   if (ballY < 0 || ballY > canvas.height) {
     // Ball hits the top or bottom wall
     ballSpeedY = -ballSpeedY;
+    ballSpeedX = Math.random() < 0.5 ? -ballSpeedX : ballSpeedX;
   }
 }
 
