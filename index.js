@@ -1,6 +1,8 @@
 // Pong Game Variables
 let canvas, ctx;
 let ballX, ballY, ballSpeedX, ballSpeedY;
+let wall1X, wall1Y, wall2X, wall2Y, wall3X, wall3Y;
+let wallNumber;
 let paddle1Y, paddle2Y, paddleSpeed;
 let paddleHeight, paddleWidth;
 let score1, score2;
@@ -39,6 +41,8 @@ function init() {
 
   // Update game frames
   setInterval(update, 1000 / 60);
+
+  makeWalls();
 }
 
 // Update game state
@@ -114,6 +118,30 @@ function resetBall() {
   ballY = canvas.height / 2;
   ballSpeedX = Math.random() < 0.5 ? -9 : 9;
   ballSpeedY = Math.random() < 0.5 ? -9 : 9;
+  makeWalls();
+}
+
+// Make walls
+function makeWalls() {
+  wallNumber = Math.floor(Math.random() * 4);
+  if (wallNumber == 0) {
+    
+  } else if (wallNumber == 1) {
+    wall1X = Math.random() * canvas.width;
+    wall1Y = Math.random() * canvas.height;
+  } else if (wallNumber == 2) {
+    wall1X = Math.random() * canvas.width;;
+    wall1Y = Math.random() * canvas.height;
+    wall2X = Math.random() * canvas.width;;
+    wall2Y = Math.random() * canvas.height;
+  } else if (wallNumber == 3) {
+    wall1X = Math.random() * canvas.width;;
+    wall1Y = Math.random() * canvas.height;
+    wall2X = Math.random() * canvas.width;;
+    wall2Y = Math.random() * canvas.height;
+    wall3X = Math.random() * canvas.width;;
+    wall3Y = Math.random() * canvas.height;
+  }
 }
 
 // Draw game objects on the canvas
@@ -132,6 +160,14 @@ function draw() {
   ctx.arc(ballX, ballY, 10, 0, Math.PI * 2);
   ctx.fillStyle = "#FFF";
   ctx.fill();
+
+  // Draw walls
+  ctx.fillStyle="#FFF";
+  ctx.fillRect(wall1X, wall1Y, canvas.width / 10, canvas.height / 10);
+  ctx.fillStyle="#FFF";
+  ctx.fillRect(wall2X, wall2Y, canvas.width / 10, canvas.height / 10);
+  ctx.fillStyle="#FFF";
+  ctx.fillRect(wall3X, wall3Y, canvas.width / 10, canvas.height / 10);
 
   // Draw scores
   ctx.fillText("Player 1: " + score1, 100, 50);
