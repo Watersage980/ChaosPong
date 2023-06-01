@@ -110,6 +110,21 @@ function moveBall() {
     ballSpeedY = -ballSpeedY;
     ballSpeedX = Math.random() < 0.5 ? -ballSpeedX : ballSpeedX;
   }
+
+  if (ballX == wall1X && ballY == wall1Y) {
+    ballSpeedX = Math.random() < 0.5 ? -ballSpeedX : ballSpeedX;
+    ballSpeedY = Math.random() < 0.5 ? -ballSpeedY : ballSpeedY;
+  }
+
+  if (ballX == wall2X && ballY == wall2Y) {
+    ballSpeedX = Math.random() < 0.5 ? -ballSpeedX : ballSpeedX;
+    ballSpeedY = Math.random() < 0.5 ? -ballSpeedY : ballSpeedY;
+  }
+
+  if (ballX == wall3X && ballY == wall3Y) {
+    ballSpeedX = Math.random() < 0.5 ? -ballSpeedX : ballSpeedX;
+    ballSpeedY = Math.random() < 0.5 ? -ballSpeedY : ballSpeedY;
+  }
 }
 
 // Reset ball position
@@ -125,7 +140,12 @@ function resetBall() {
 function makeWalls() {
   wallNumber = Math.floor(Math.random() * 4);
   if (wallNumber == 0) {
-
+    wall1X = canvas.width + 250;
+    wall1Y = canvas.height + 250;
+    wall2X = canvas.width + 250;
+    wall2Y = canvas.height + 250;
+    wall3X = canvas.width + 250;
+    wall3Y = canvas.height + 250;
   } else if (wallNumber == 1) {
     wall1X = Math.random() * canvas.width;
     wall1Y = Math.random() * canvas.height;
@@ -162,14 +182,15 @@ function draw() {
   ctx.fill();
 
   // Draw walls
-  ctx.fillStyle="#FFF";
-  ctx.fillRect(wall1X, wall1Y, canvas.width / 10, canvas.height / 10);
-  ctx.fillStyle="#FFF";
-  ctx.fillRect(wall2X, wall2Y, canvas.width / 10, canvas.height / 10);
-  ctx.fillStyle="#FFF";
-  ctx.fillRect(wall3X, wall3Y, canvas.width / 10, canvas.height / 10);
+  ctx.fillStyle = "brown";
+  ctx.fillRect(wall1X, wall1Y, canvas.width / 20, canvas.height / 10);
+  ctx.fillStyle = "#brown";
+  ctx.fillRect(wall2X, wall2Y, canvas.width / 20, canvas.height / 10);
+  ctx.fillStyle = "#brown";
+  ctx.fillRect(wall3X, wall3Y, canvas.width / 20, canvas.height / 10);
 
   // Draw scores
+  ctx.fillStyle = "#FFF";
   ctx.fillText("Player 1: " + score1, 100, 50);
   ctx.fillText("Player 2: " + score2, canvas.width - 250, 50);
 
