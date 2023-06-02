@@ -112,9 +112,9 @@ function moveBall() {
   }
 
   if (isTouchingBrown(ballX, ballY)) {
-    // Ball hits the color brown
     ballSpeedX = Math.random() < 0.5 ? -9 : 9;
     ballSpeedY = Math.random() < 0.5 ? -9 : 9;
+    // Ball hits the color brown
   }
 }
 
